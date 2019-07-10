@@ -1,0 +1,63 @@
+logging.level.org.springframework.web.client: DEBUG
+logging.level.org.apache.coyote.http11: DEBUG
+
+server.port: 30479
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github-client-1:
+            client-id: fe098560cd1a18daf1de
+            client-secret: b364bf02ddf581bbeb9339212f5079cbc246d088
+            client-name: Github user
+            provider: github
+            scope: user
+            redirect-uri: http://localhost:8091/login/oauth2/code/github
+          github-client-2:
+            client-id: fe098560cd1a18daf1de
+            client-secret: b364bf02ddf581bbeb9339212f5079cbc246d088
+            client-name: Github email
+            provider: github
+            scope: user:email
+            redirect-uri: http://localhost:8091/login/oauth2/code/github
+          # yahoo-oidc:
+          #   client-id: ${YAHOO-CLIENT-ID}
+          #   client-secret: ${YAHOO-CLIENT-SECRET}
+          github-repos:
+            client-id: fe098560cd1a18daf1de
+            client-secret: b364bf02ddf581bbeb9339212f5079cbc246d088
+            scope: public_repo
+            redirect-uri: "{baseUrl}/github-repos"
+            provider: github
+            client-name: GitHub Repositories
+          open-am:
+            client-id: k8sbna-apiserver
+            client-secret: password
+            client-name: Open AM Service 
+            scope: openid
+            redirect-uri: http://k8sbna-apiserver.dc2.true.th:30479/login/oauth2/code/open-am
+          facebook:
+            client-id: 2389265704652519
+            client-secret: 57783528925a10ea04f2216df551836c
+            client-name: OAuth Test
+            scope: client_credentials
+            provider: facebook
+            redirect-uri: http://localhost:8091/login/oauth2/code/facebook
+
+          keycloak:
+            client-id: hlexoauth
+            client-secret: 0e14405a-da73-4626-8001-99d7a32a3f35
+            client-name: keycloak 
+            scope: email
+            provider: keycloak
+        provider:
+          # openAM:
+          #   issuer-uri:
+          keycloak:
+            issuer-uri: http://172.19.219.249:8088/auth/realms/master
+          # yahoo-oidc:
+          #   issuer-uri: https://api.login.yahoo.com
+          open-am:
+            issuer-uri: https://sso-devt.true.th:11443/openam/oauth2
+          #keycloak http://172.19.219.249:8088/auth

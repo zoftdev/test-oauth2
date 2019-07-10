@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - SampleOAuth2ClientApplication",
+            "request": "launch",
+            "mainClass": "sample.oauth2.client.SampleOAuth2ClientApplication",
+            "projectName": "spring-boot-sample-oauth2-client"
+        }
+    ]
+}
